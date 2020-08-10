@@ -52,7 +52,7 @@ namespace Library
 
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Something went wrong!");
+        await context.Response.WriteAsync("Oh oh! The monkeys appear to have gotten loose and gone after the computers again. Watch our for Frank, he really hates humans!");
       });
     }
   }
