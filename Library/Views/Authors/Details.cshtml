@@ -1,3 +1,33 @@
 @{
   Layout = "_Layout";
 }
+
+@model Library.Models.Author
+
+<h2>Author Details</h2>
+<hr/>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.Books.Count == 0)
+{
+  <p>This author has no listed books</p>
+}
+else
+{
+  <h4>Books by this author:</h4>
+
+  <ul>
+  @foreach(var join in Model.Books)
+  {
+    <li>@join.Book.Name</li>
+    @using (Html.BeginForm("DeleteBook", "Authors"))
+    {
+      @Html.Hidden("joinId", @join.AuthorBookId)
+      <input type="submit" value="Delete" />
+    }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to all authors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
