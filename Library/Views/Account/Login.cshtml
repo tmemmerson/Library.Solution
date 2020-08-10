@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Library.ViewModels
+
+@model LoginViewModel
+
+<h2>Login to your account</h2>
+<br>
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password)
+    <input type="submit" value="login" class="btn btn-info" />
+  </div>
+
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
