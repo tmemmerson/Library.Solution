@@ -1,4 +1,4 @@
-using Microsfot.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace Library.Models
 {
