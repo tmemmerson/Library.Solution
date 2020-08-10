@@ -9,18 +9,41 @@
 
 </h1>
 
+<br>
 
+**<h3 align = "center">
+  <a href="#✅requirements">Requirements</a> •
+  <a href="#💻setup">Setup</a> •
+  <a href="#🔧protecting-your-data">Protecting Data<a> •
+  <a href="#📫questions-and-concerns">Q's & C's</a> •
+  <a href="#🔧technologies-used">Technologies</a> •
+  <a href="#🐛bugs">Bugs</a> •
+  <a href="#❤️contributors">Contributors</a>**</h3>
 
+**ABOUT**
 
+* As a librarian, I want to create, read, update, delete, and list books in the catalog.
 
+* As a librarian, I want to search for a book by author or title.
 
+* As a librarian, I want to enter multiple authors for a book.
 
+* As a patron, I want to check a book out.
 
+* As a patron, I want to know how many copies of a book are on the shelf, so that I can see if any are available. (Hint: make a copies table; a book should have many copies.)
 
+* As a patron, I want to see a history of all the books I checked out. (Hint: make a checkouts table that is a join table between patrons and copies.)
 
+* As a patron, I want to know when a book I checked out is due.
 
+* As a librarian, I want to see a list of overdue books.
 
+## **✅REQUIREMENTS** 
 
+* Install [Git v2.62.2+](https://git-scm.com/downloads/)
+* Install [.NET version 3.1 SDK v2.2+](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+* Install [Visual Studio Code](https://code.visualstudio.com/)
+* Install [MySql Workbench](https://www.mysql.com/products/workbench/)
 
 
 
