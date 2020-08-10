@@ -3,18 +3,24 @@ using Library.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
+
 
 namespace Library.Controllers
 {
-  [Authorize]
-  public class BooksController : Controllers
+  // [Authorize]
+  public class BooksController : Controller
   {
     private readonly LibraryContext _db;
-    private readonly UserManager<ApplicationUser> _userManager;
+    // private readonly UserManager<ApplicationUser> _userManager;
 
     public BooksController(UserManager<ApplicationUser> userManager, LibraryContext db)
     {
-      _userManager = userManager;
+      // _userManager = userManager;
       _db = db;
     }
 
@@ -25,11 +31,11 @@ namespace Library.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.AuthorId = newSelectList(_db.Authors, "AuthorId", "Name");
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
       return View();
     }
 
-    [HttPost]
+    [HttpPost]
     public ActionResult Create(Book book, int AuthorId)
     {
       _db.Books.Add(book);
@@ -46,7 +52,7 @@ namespace Library.Controllers
       var thisBook = _db.Books  
         .Include(book => book.Authors)
         .ThenInclude(join => join.Author)
-        .FirstOrDefault(Book => book.BookId == id);
+        .FirstOrDefault(book => book.BookId == id);
       return View(thisBook);
     }
 
@@ -54,7 +60,7 @@ namespace Library.Controllers
     {
       var thisBook = _db.Books.FirstOrDefault(BooksController => BooksController.BookId == id);
       ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
-      return ViewModels(thisBook);
+      return View(thisBook);
     }
 
     [HttpPost]
@@ -62,7 +68,7 @@ namespace Library.Controllers
     {
       if (AuthorId != 0)
       {
-        __db.AuthorBook.Add(new AuthorBook() {AuthorId = AuthorId, BookId = book.BookId});
+        _db.AuthorBook.Add(new AuthorBook() {AuthorId = AuthorId, BookId = book.BookId});
       }
       _db.Entry(book).State = EntityState.Modified;
       _db.SaveChanges();
@@ -90,7 +96,7 @@ namespace Library.Controllers
     public ActionResult Delete(int id)
     {
       var thisBook = _db.Books.FirstOrDefault(books => books.BookId == id);
-      return ViewModels(thisBook);
+      return View(thisBook);
     }
 
     [HttpPost, ActionName("Delete")]
