@@ -38,8 +38,8 @@ namespace Library.Controllers
     {
       var thisAuthor = _db.Authors
         .Include(author => author.Books)
-        .ThenInclude(join => join.Book);
-        FirstOrDefault(author => author.AuthorId == id);
+        .ThenInclude(join => join.Book)
+        .FirstOrDefault(author => author.AuthorId == id);
       return View(thisAuthor);
     }
 
@@ -60,7 +60,7 @@ namespace Library.Controllers
     public ActionResult Delete(int id)
     {
       var thisAuthor = _db.Authors.FirstOrDefault(author => author.AuthorId == id);
-      return ViewModels(thisAuthor);
+      return View(thisAuthor);
     }
 
     [HttpPost, ActionName("Delete")]
