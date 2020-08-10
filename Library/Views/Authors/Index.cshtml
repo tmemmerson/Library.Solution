@@ -1,3 +1,42 @@
 @{
   Layout = "_Layout";
 }
+
+@using Library.Models;
+@using System.Security.Claims;
+@model IEnumerable<Library.Models.Author>;
+
+<h1>Authors:</h1>
+
+@if(@Model.Count() == 0)
+{
+  <h3>There are no authors listed yet.</h3>
+}
+else
+{  
+  <form asp-controller="Books" asp-action="Index">
+    <label for="Name">Search by name</label>
+    <input type="text" name="Name" id="Name" />
+    <input type="submit" value="Filter" />
+  </form>
+  
+<table class="table table-striped table-hover">
+  <thread>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thread>
+  <tbody>
+  @foreach(Author author in Model)
+  {
+    <tr>
+    <td>@Html.ActionLink($"{author.Name}", "Edit", new { id = author.AuthorId})</td>
+    <td>@Html.ActionLink("Edit", "Edit", new { id = author.AuthorId }) | @Html.ActionLink("Delete", "Delete", new { id = author.AuthorId })</td>
+    </tr>
+  }
+  </tbody>
+</table>
+}
+<p>@Html.ActionLink("Add a new author", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
