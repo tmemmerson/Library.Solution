@@ -31,6 +31,7 @@ namespace Library.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Name");
       return View();
     }
 
@@ -54,6 +55,7 @@ namespace Library.Controllers
     public ActionResult Edit(int id)
     {
       var thisAuthor = _db.Authors.FirstOrDefault(author => author.AuthorId == id);
+      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Name");
       return View(thisAuthor);
     }
 
