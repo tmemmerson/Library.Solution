@@ -46,6 +46,14 @@
 * Install [Visual Studio Code](https://code.visualstudio.com/)
 * Install [MySql Workbench](https://www.mysql.com/products/workbench/)
 
+<br>
+
+## **📫QUESTIONS AND CONCERNS**
+
+_Questions, comments and concerns can be directed to the author [Tristan Emmerson](https://www.linkedin.com/in/tristan-emmerson/)_
+
+<br>
+
 ## **🔧 Technologies Used**
 
 _**Written in:** [Visual Studio Code](https://code.visualstudio.com/)_
