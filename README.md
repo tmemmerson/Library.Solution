@@ -12,7 +12,7 @@
 <br>
 
 **<h3 align = "center">
-  <a href="#✅requirements">Requirements</a> •
+  <a href="#✅REQUIREMENTS">Requirements</a> •
   <a href="#💻setup">Setup</a> •
   <a href="#🔧protecting-your-data">Protecting Data<a> •
   <a href="#📫questions-and-concerns">Q's & C's</a> •

@@ -151,7 +151,7 @@ namespace Library.Controllers
       _db.Add(thisCopy);
       _db.Entry(thisCopy).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Details", bookId);
+      return RedirectToAction("Details", new { id = bookId });
     }
   }
 }
