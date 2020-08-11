@@ -4,14 +4,21 @@
 
 @using Library.Models;
 @using System.Security.Claims
-@model List<Library.Models.Book>;
+@model IEnumerable<Library.Models.Book>;
 
 <h1>Books</h1>
 
-@if (@Model.Count == 0)
+@if (@Model.Count() == 0)
 {
   <h3>There are no books. Much Sad.</h3>
-}
+} 
+else
+{
+  <form asp-controller="Authors" asp-action="Index">
+    <label for="Name">Search by name</label>
+    <input type="text" name="Name" id="Name" />
+    <input type="submit" value="Filter" />
+  </form>
 
 <table class="table table-striped table-hover">
   <thead>
@@ -24,12 +31,12 @@
   @foreach(Book book in Model)
   {
     <tr>
-    <td>@Html.ActionLink($"{book.Name}", "Edit", new { id = book.BookId })</td>
+    <td>@Html.ActionLink($"{book.Name}", "Details", new { id = book.BookId })</td>
     <td>@Html.ActionLink("Edit", "Edit", new { id = book.BookId }) | @Html.ActionLink("Delete", "Delete", new { id = book.BookId })</td>
     </tr>
   }
   </tbody>
 </table>
-
+}
 <input type="button" class="btn btn-primary" value="Add a New Book" onclick="location.href='@Url.Action("Create", "Books")'" />
 <input type="button" class="btn btn-primary" value="Home" onclick="location.href='@Url.Action("Index", "Home")'" />
