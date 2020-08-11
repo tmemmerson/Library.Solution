@@ -54,6 +54,9 @@
 
 _Questions, comments and concerns can be directed to the authors_
 
+* [Deryck Jackson](https://www.linkedin.com/in/deryckjackson/)
+* [Hannah Beinstein](https://www.linkedin.com/in/hannahbeinstein/)
+* [Beverly Potts](https://www.linkedin.com/in/beverlypotts/)
 * [Tristan Emmerson](https://www.linkedin.com/in/tristan-emmerson/)
 
 <br>
