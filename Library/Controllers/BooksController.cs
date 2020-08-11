@@ -14,15 +14,15 @@ using System.Security.Claims;
 
 namespace Library.Controllers
 {
-  // [Authorize]
+  [Authorize]
   public class BooksController : Controller
   {
     private readonly LibraryContext _db;
-    // private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<ApplicationUser> _userManager;
 
     public BooksController(UserManager<ApplicationUser> userManager, LibraryContext db)
     {
-      // _userManager = userManager;
+      _userManager = userManager;
       _db = db;
     }
 
