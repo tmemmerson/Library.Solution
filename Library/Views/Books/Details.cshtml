@@ -28,6 +28,8 @@ else
   </ul>
 }
 
+<p>@Html.ActionLink("Add Copy", "AddCopy", new { id = Model.BookId })</p>
+
 <p>@Html.ActionLink("Back to catalog", "Index")</p>
 <p>@Html.ActionLink("Edit Book", "Edit", new { id = Model.BookId})</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
