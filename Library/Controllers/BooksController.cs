@@ -137,9 +137,9 @@ namespace Library.Controllers
     }
 
     [HttpPost]
-    public ActionResult CheckOutToggle(int id)
+    public ActionResult CheckOutToggle(int copyId)
     {
-      var thisCopy = _db.Copies.FirstOrDefault(copy => copy.CopyId == id);
+      var thisCopy = _db.Copies.FirstOrDefault(copy => copy.CopyId == copyId);
       if (thisCopy.CheckedOut)
       {
         thisCopy.CheckedOut = false;

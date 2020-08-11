@@ -36,7 +36,7 @@ else
       <li>Copy: Available</li>
       @using (Html.BeginForm("CheckOutToggle", "Books"))
       {
-        @Html.Hidden("id", @join.CopyId)
+        @Html.Hidden("copyId", @join.CopyId)
         <input type="submit" value="Check Out"/>
       }
     }
@@ -51,7 +51,7 @@ else
       <li>Copy: Checked out</li>
       @using (Html.BeginForm("CheckOutToggle", "Books"))
       {
-        @Html.Hidden("id", @join.CopyId)
+        @Html.Hidden("copyId", @join.CopyId)
         <input type="submit" value="Return"/>
       }
     }
