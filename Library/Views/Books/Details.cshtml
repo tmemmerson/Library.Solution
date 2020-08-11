@@ -26,9 +26,34 @@ else
     }
   }
   </ul>
+  
+  <h4>Copies Available:</h4>
+  <ul>
+  @foreach (var join in Model.Copies)
+  {
+    if (!join.CheckedOut)
+    {
+      <li>Copy: Available</li>
+    }
+  }
+  </ul>
+  <h4>Copies Checked Out:</h4>
+  <ul>
+  @foreach (var join in Model.Copies)
+  {
+    if (join.CheckedOut)
+    {
+      <li>Copy: Checked out</li>
+    }
+  }
+  </ul>
 }
 
-<p>@Html.ActionLink("Add Copy", "AddCopy", new { id = Model.BookId })</p>
+@using (Html.BeginForm("AddCopy"))
+{
+  @Html.Hidden("id", Model.BookId)
+  <input class="btn btn-primary" type="submit" value="Add Copy"/>
+}
 
 <p>@Html.ActionLink("Back to catalog", "Index")</p>
 <p>@Html.ActionLink("Edit Book", "Edit", new { id = Model.BookId})</p>
