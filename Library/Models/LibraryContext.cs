@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Models
 {
-  public class LibraryContext : IdentityDbContext<ApplicationUser>
+  public class LibraryContext : IdentityDbContext<Patron>
   {
     public virtual DbSet<Author> Authors { get; set; }
     public virtual DbSet<Book> Books { get; set; }

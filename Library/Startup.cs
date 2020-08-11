@@ -30,7 +30,7 @@ namespace Library
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       //new code
-      services.AddIdentity<ApplicationUser, IdentityRole>()
+      services.AddIdentity<Patron, IdentityRole>()
                 .AddEntityFrameworkStores<LibraryContext>()
                 .AddDefaultTokenProviders();
       

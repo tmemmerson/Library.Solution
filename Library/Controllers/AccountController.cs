@@ -9,11 +9,11 @@ namespace Library.Controllers
   public class AccountController : Controller
   {
     private readonly LibraryContext _db;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<Patron> _userManager;
 
-    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly SignInManager<Patron> _signInManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, LibraryContext db)
+    public AccountController(UserManager<Patron> userManager, SignInManager<Patron> signInManager, LibraryContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
@@ -33,7 +33,7 @@ namespace Library.Controllers
     [HttpPost]
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
-      var user = new ApplicationUser { UserName = model.Email };
+      var user = new Patron { UserName = model.Email };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);    
       if (result.Succeeded)
       {

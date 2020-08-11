@@ -18,9 +18,9 @@ namespace Library.Controllers
   public class BooksController : Controller
   {
     private readonly LibraryContext _db;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<Patron> _userManager;
 
-    public BooksController(UserManager<ApplicationUser> userManager, LibraryContext db)
+    public BooksController(UserManager<Patron> userManager, LibraryContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -50,20 +50,18 @@ namespace Library.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Book book, int AuthorId)
+    public async Task<ActionResult> Create(Book book, int AuthorId, Copy copy, int PatronId)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       copy.User = currentUser;
       _db.Copies.Add(copy);
-      if(PatronId!== 0)
+      if(PatronId!= 0)
       {
         _db.Checkouts.Add(new Checkout() {
           PatronId = PatronId, CopyId = copy.CopyId });
       }
-      _db.SaveChanges(); 
-    }
-      
+      _db.SaveChanges();      
 
       _db.Books.Add(book);
       if (AuthorId != 0)
