@@ -62,7 +62,7 @@ namespace Library.Controllers
         .Include(book => book.Authors)
           .ThenInclude(join => join.Author)
         .Include(book => book.Copies)
-          .ThenInclude(join => join.CheckedOut)
+          // .ThenInclude(join => join.CheckedOut)
         .FirstOrDefault(book => book.BookId == id);
       return View(thisBook);
     }
@@ -132,6 +132,24 @@ namespace Library.Controllers
     public ActionResult AddCopy(int id)
     {
       _db.Copies.Add(new Copy() { BookId = id } );
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult CheckOutToggle(int id)
+    {
+      var thisCopy = _db.Copies.FirstOrDefault(copy => copy.CopyId == id);
+      if (thisCopy.CheckedOut)
+      {
+        thisCopy.CheckedOut = false;
+      }
+      else
+      {
+        thisCopy.CheckedOut = true;
+      }
+      _db.Add(thisCopy);
+      _db.Entry(thisCopy).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

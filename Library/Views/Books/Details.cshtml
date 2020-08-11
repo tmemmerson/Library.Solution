@@ -34,6 +34,11 @@ else
     if (!join.CheckedOut)
     {
       <li>Copy: Available</li>
+      @using (Html.BeginForm("CheckOutToggle", "Books"))
+      {
+        @Html.Hidden("id", @join.CopyId)
+        <input type="submit" value="Check Out"/>
+      }
     }
   }
   </ul>
@@ -44,12 +49,17 @@ else
     if (join.CheckedOut)
     {
       <li>Copy: Checked out</li>
+      @using (Html.BeginForm("CheckOutToggle", "Books"))
+      {
+        @Html.Hidden("id", @join.CopyId)
+        <input type="submit" value="Return"/>
+      }
     }
   }
   </ul>
 }
 
-@using (Html.BeginForm("AddCopy"))
+@using (Html.BeginForm("AddCopy", "Books"))
 {
   @Html.Hidden("id", Model.BookId)
   <input class="btn btn-primary" type="submit" value="Add Copy"/>
