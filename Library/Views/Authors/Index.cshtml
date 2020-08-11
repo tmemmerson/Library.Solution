@@ -31,7 +31,7 @@ else
   @foreach(Author author in Model)
   {
     <tr>
-    <td>@Html.ActionLink($"{author.Name}", "Edit", new { id = author.AuthorId})</td>
+    <td>@Html.ActionLink($"{author.Name}", "Details", new { id = author.AuthorId})</td>
     <td>@Html.ActionLink("Edit", "Edit", new { id = author.AuthorId }) | @Html.ActionLink("Delete", "Delete", new { id = author.AuthorId })</td>
     </tr>
   }
