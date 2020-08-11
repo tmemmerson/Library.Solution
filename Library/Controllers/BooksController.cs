@@ -25,9 +25,16 @@ namespace Library.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(string Name)
     {
-      return View(_db.Books.ToList());
+      IQueryable<Book> bookQuery = _db.Books;
+      if (!string.IsNullOrEmpty(Name))
+      {
+        Regex search = new Regex(Name, RegexOptions.IgnoreCase);
+        bookQuery = bookQuery.Where(books => search.IsMatch(books.Name));
+      }
+      IEnumerable<Book> model = bookQuery.ToList().OrderBy(book => book.Name);
+      return View(model);
     }
 
     public ActionResult Create()
