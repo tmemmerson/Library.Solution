@@ -60,7 +60,9 @@ namespace Library.Controllers
     {
       var thisBook = _db.Books  
         .Include(book => book.Authors)
-        .ThenInclude(join => join.Author)
+          .ThenInclude(join => join.Author)
+        .Include(book => book.Copies)
+          .ThenInclude(join => join.Copy)
         .FirstOrDefault(book => book.BookId == id);
       return View(thisBook);
     }

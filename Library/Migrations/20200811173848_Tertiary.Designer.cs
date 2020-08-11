@@ -3,14 +3,16 @@ using System;
 using Library.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20200811173848_Tertiary")]
+    partial class Tertiary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,22 +109,6 @@ namespace Library.Migrations
                     b.HasKey("BookId");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Library.Models.Copy", b =>
-                {
-                    b.Property<int>("CopyId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BookId");
-
-                    b.Property<bool>("CheckedOut");
-
-                    b.HasKey("CopyId");
-
-                    b.HasIndex("BookId");
-
-                    b.ToTable("Copy");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -241,14 +227,6 @@ namespace Library.Migrations
 
                     b.HasOne("Library.Models.Book", "Book")
                         .WithMany("Authors")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Library.Models.Copy", b =>
-                {
-                    b.HasOne("Library.Models.Book", "Book")
-                        .WithMany("Copies")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

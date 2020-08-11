@@ -7,11 +7,12 @@ namespace Library.Models
     public Book()
     {
       this.Authors = new HashSet<AuthorBook>();
+      this.Copies = new HashSet<Copy>();
     }
 
     public int BookId { get; set; }
     public string Name { get; set; }
-    public bool CheckedOut { get; set; }
     public virtual ICollection<AuthorBook> Authors { get; }
+    public virtual ICollection<Copy> Copies { get; }
   }
 }
