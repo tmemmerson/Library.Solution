@@ -41,7 +41,7 @@
 
 * As a librarian, I want to see a list of overdue books.
 
-## **✅requirements** 
+## **✅REQUIREMENTS** 
 
 * Install [Git v2.62.2+](https://git-scm.com/downloads/)
 * Install [.NET version 3.1 SDK v2.2+](https://dotnet.microsoft.com/download/dotnet-core/2.2)
