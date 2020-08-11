@@ -11,6 +11,7 @@ namespace Library.Models
 
     public int BookId { get; set; }
     public string Name { get; set; }
+    public bool CheckedOut { get; set; }
     public virtual ICollection<AuthorBook> Authors { get; }
   }
 }
