@@ -26,8 +26,13 @@ namespace Library.Controllers
       _db = db;
     }
 
-    public ActionResult Index(string Name)
+    public async Task<ActionResult> Index(string Name)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userCopies = _db.Copies.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      ViewBag.userCopies = userCopies;
+
       IQueryable<Book> bookQuery = _db.Books;
       if (!string.IsNullOrEmpty(Name))
       {
@@ -45,8 +50,21 @@ namespace Library.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Book book, int AuthorId)
+    public async Task<ActionResult> Create(Book book, int AuthorId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      copy.User = currentUser;
+      _db.Copies.Add(copy);
+      if(PatronId!== 0)
+      {
+        _db.Checkouts.Add(new Checkout() {
+          PatronId = PatronId, CopyId = copy.CopyId });
+      }
+      _db.SaveChanges(); 
+    }
+      
+
       _db.Books.Add(book);
       if (AuthorId != 0)
       {
