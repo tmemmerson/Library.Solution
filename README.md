@@ -12,14 +12,14 @@
 <br>
 
 <h4 align = "center">
-  <a href="#✅requirements">Requirements</a> •
-<!--  <a href="#💻setup">Setup</a> • -->
+  <a href="#requirements">Requirements</a> •
+<!--  <a href="#setup">Setup</a> • -->
 <!--   <a href="#protecting-your-data">Protecting Data</a> • -->
-  <a href="#📫questions-and-concerns">Q's & C's</a> •
-  <a href="#🔧technologies-used">Technologies</a> •
-  <a href="#🐛known-bugs">Known Bugs</a> •  
-  <a href="#❤️contributors">Contributors</a> •
-  <a href="#📘license">License</a></h4>
+  <a href="#questions-and-concerns">Q's & C's</a> •
+  <a href="#technologies-used">Technologies</a> •
+  <a href="#known-bugs">Known Bugs</a> •  
+  <a href="#contributors">Contributors</a> •
+  <a href="#license">License</a></h4>
 
 <br>
 
@@ -41,7 +41,7 @@
 
 * As a librarian, I want to see a list of overdue books.
 
-## **✅REQUIREMENTS** 
+## **REQUIREMENTS** 
 
 * Install [Git v2.62.2+](https://git-scm.com/downloads/)
 * Install [.NET version 3.1 SDK v2.2+](https://dotnet.microsoft.com/download/dotnet-core/2.2)
@@ -50,7 +50,7 @@
 
 <br>
 
-## **📫QUESTIONS AND CONCERNS**
+## **QUESTIONS AND CONCERNS**
 
 _Questions, comments and concerns can be directed to the authors_
 
@@ -61,7 +61,7 @@ _Questions, comments and concerns can be directed to the authors_
 
 <br>
 
-## **🔧TECHNOLOGIES USED**
+## **TECHNOLOGIES USED**
 
 _**Written in:** [Visual Studio Code](https://code.visualstudio.com/)_
 
@@ -72,20 +72,20 @@ _**Database Mgmt:** [MySql Workbench](https://www.mysql.com/products/workbench/)
 
 <br>
 
-## **🐛KNOWN BUGS**
+## **KNOWN BUGS**
 
 _**None as of:** 8/11/2020_
 
 <br>
 
-## **❤️CONTRIBUTORS**
+## **CONTRIBUTORS**
 
 | [<img src="https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/hannah-beinstein.jpg" width="160px;"/><br /><sub><b>Hannah Beinstein</b></sub>](https://www.linkedin.com/in/hannahbeinstein/)<br />        | [<img src="https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/deryck-jackson.jpg" width="160px;"/><br /><sub><b>Deryck Jackson</b></sub>](https://www.linkedin.com/in/deryckjackson/)<br /> | [<img src="https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/beverly-potts.jpg" width="160px;"/><br /><sub><b>Beverly Potts</b></sub>](https://www.linkedin.com/in/beverlypotts/)<br />          | [<img src="https://coding-assets.s3-us-west-2.amazonaws.com/img/tristan_emmerson.jpg" width="160px;"/><br /><sub><b>Tristan Emmerson</b></sub>](https://www.linkedin.com/in/tristan-emmerson/)<br /> |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
 <br>
 
-## **📘LICENSE**
+## **LICENSE**
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Copyright (c) 2020 **_Tristan Emmerson, Stickerslug Inc._**
