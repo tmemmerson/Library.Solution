@@ -37,6 +37,7 @@ else
       @using (Html.BeginForm("CheckOutToggle", "Books"))
       {
         @Html.Hidden("copyId", @join.CopyId)
+        @Html.Hidden("bookId", @join.BookId)
         <input type="submit" value="Check Out"/>
       }
     }
@@ -52,6 +53,7 @@ else
       @using (Html.BeginForm("CheckOutToggle", "Books"))
       {
         @Html.Hidden("copyId", @join.CopyId)
+        @Html.Hidden("bookId", @join.BookId)
         <input type="submit" value="Return"/>
       }
     }

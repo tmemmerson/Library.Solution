@@ -137,7 +137,7 @@ namespace Library.Controllers
     }
 
     [HttpPost]
-    public ActionResult CheckOutToggle(int copyId)
+    public ActionResult CheckOutToggle(int bookId, int copyId)
     {
       var thisCopy = _db.Copies.FirstOrDefault(copy => copy.CopyId == copyId);
       if (thisCopy.CheckedOut)
@@ -151,7 +151,7 @@ namespace Library.Controllers
       _db.Add(thisCopy);
       _db.Entry(thisCopy).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", bookId);
     }
   }
 }
