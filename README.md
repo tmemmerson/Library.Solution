@@ -17,7 +17,7 @@
   <a href="#🔧protecting-your-data">Protecting Data<a> •
   <a href="#📫questions-and-concerns">Q's & C's</a> •
   <a href="#🔧technologies-used">Technologies</a> •
-  <a href="#🐛bugs">Bugs</a> •
+  <a href="#**🐛bugs**">Bugs</a> •
   <a href="#❤️contributors">Contributors</a> •
   <a href="#📘license">License</a>**</h3>
 
