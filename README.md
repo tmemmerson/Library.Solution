@@ -69,7 +69,7 @@ _**Database Mgmt:** [MySql Workbench](https://www.mysql.com/products/workbench/)
 
 ## **🐛KNOWN BUGS**
 
-_**Checkout/Return functionality limited to first book instance using:** 8/11/2020_
+_**None as of:** 8/11/2020_
 
 <br>
 
