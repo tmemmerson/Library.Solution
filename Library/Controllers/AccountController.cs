@@ -4,6 +4,12 @@ using Library.Models;
 using System.Threading.Tasks;
 using Library.ViewModels;
 
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+
 namespace Library.Controllers
 {
   public class AccountController : Controller
@@ -20,9 +26,13 @@ namespace Library.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View();
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userBooksCheckedOut = _db.Copies.Where(copy => copy.User.Id == currentUser.Id)
+        .Include(copy => copy.Book).ToList();
+      return View(userBooksCheckedOut);
     }
 
     public IActionResult Register()
