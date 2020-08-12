@@ -137,16 +137,21 @@ namespace Library.Controllers
     }
 
     [HttpPost]
-    public ActionResult CheckOutToggle(int bookId, int copyId)
+    public async Task<ActionResult> CheckOutToggle(int bookId, int copyId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+
       var thisCopy = _db.Copies.FirstOrDefault(copy => copy.CopyId == copyId);
       if (thisCopy.CheckedOut)
       {
         thisCopy.CheckedOut = false;
+        thisCopy.User = null;
       }
       else
       {
         thisCopy.CheckedOut = true;
+        thisCopy.User = currentUser;
       }
       _db.Add(thisCopy);
       _db.Entry(thisCopy).State = EntityState.Modified;
