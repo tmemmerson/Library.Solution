@@ -14,7 +14,7 @@ using System.Security.Claims;
 
 namespace Library.Controllers
 {
-  [Authorize]
+
   public class BooksController : Controller
   {
     private readonly LibraryContext _db;
